@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ro">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>Cauta retete - TheMealDB</title>
+        <link  rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+
+       <header>
+    <h1>Aplicatie Cautare Retete</h1>
+    <p>Gaseste retete delicioase dupa ingredientul principal</p>
+       </header>
+
+       <main>
+    <form id="recipeForm" class="search-form">
+    <div class="form-group">
+        <label for="searchInput">Introdu un incredient : </label>
+        <input
+        type="search"
+        id="searchInput"
+        name="query"
+        placeholder="Ex : chicken ...."
+        required
+        minlength="2"
+        >
+    </div>
+
+    <button type="submit" id="searchBtn">Cauta Retete</button>
+    </form>
+
+    <!-- Zona unde vor fi afisate rezultatele -->
+    <section id="resultsContainer" class="recipe-grid" aria-live="polite">
+      <!-- Cardurile din API se vor genera dinamic prin JavaScript -->
+    </section>
+
+       </main>
+
+       <footer>
+    <p>Proiect Web - Date furnizate de TheMealDB API</p>
+  </footer>
+
+<script src="script.js"></script>
+
+    </body>
+</html>

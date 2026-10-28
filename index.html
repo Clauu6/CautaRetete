@@ -1,48 +1,78 @@
 <!DOCTYPE html>
-<html lang="ro">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <title>Cauta retete - TheMealDB</title>
-        <link  rel="stylesheet" href="style.css">
-    </head>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Culinary Hub - Recipe Search</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-    <body>
-
-       <header>
-    <h1>Aplicatie Cautare Retete</h1>
-    <p>Gaseste retete delicioase dupa ingredientul principal</p>
-       </header>
-
-       <main>
-    <form id="recipeForm" class="search-form">
-    <div class="form-group">
-        <label for="searchInput">Introdu un incredient : </label>
-        <input
-        type="search"
-        id="searchInput"
-        name="query"
-        placeholder="Ex : chicken ...."
-        required
-        minlength="2"
-        >
+  
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Culinary Hub</h1>
+      <p>Find inspiration for your next meal in seconds</p>
     </div>
+  </header>
 
-    <button type="submit" id="searchBtn">Cauta Retete</button>
+  <main class="container">
+    <!-- Filter Form -->
+    <form id="recipeForm" class="filter-card">
+      <div class="form-row">
+        
+        <div class="input-group">
+          <label for="searchInput">Main Ingredient:</label>
+          <input 
+            type="search" 
+            id="searchInput" 
+            placeholder="e.g. Chicken, Pasta, Rice..."
+          >
+        </div>
+
+        <div class="input-group">
+          <label for="categorySelect">Category:</label>
+          <select id="categorySelect">
+            <option value="">All Categories</option>
+            <option value="Seafood">Seafood</option>
+            <option value="Vegetarian">Vegetarian</option>
+            <option value="Dessert">Dessert</option>
+            <option value="Beef">Beef</option>
+            <option value="Chicken">Chicken</option>
+          </select>
+        </div>
+
+      </div>
+
+      <div class="button-group">
+        <button type="submit" class="btn btn-primary">Search Recipes</button>
+      </div>
     </form>
 
-    <!-- Zona unde vor fi afisate rezultatele -->
+    <!-- Tab-uri pentru comutare între All Recipes și Saved Recipes -->
+    <div class="tabs">
+      <button id="tabAll" class="tab-btn active" onclick="switchTab('all')">All Recipes</button>
+      <button id="tabFavorites" class="tab-btn" onclick="switchTab('favorites')">Saved Recipes ❤️</button>
+    </div>
+
+    <!-- Results Grid -->
     <section id="resultsContainer" class="recipe-grid" aria-live="polite">
-      <!-- Cardurile din API se vor genera dinamic prin JavaScript -->
+      <!-- Recipe cards loaded dynamically via JS -->
     </section>
 
-       </main>
+    <!-- HTML5 Modal Dialog for Details -->
+    <dialog id="recipeModal" class="modal">
+      <div class="modal-content">
+        <button id="closeModal" class="close-btn">&times;</button>
+        <div id="modalDetails"></div>
+      </div>
+    </dialog>
+  </main>
 
-       <footer>
-    <p>Proiect Web - Date furnizate de TheMealDB API</p>
+  <footer>
+    <p>&copy; 2026 Web Project. Data provided by TheMealDB API.</p>
   </footer>
 
-<script src="script.js"></script>
-
-    </body>
+  <script src="script.js"></script>
+</body>
 </html>
